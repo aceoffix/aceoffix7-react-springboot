@@ -1,0 +1,67 @@
+/* eslint-disable no-undef */
+import React, { useState, useEffect} from "react";
+import service from "../../api";
+const Word = () => {
+  const [aceHtmlCode, setAceHtmlCode] = useState("");
+  const [userName, setUserName] = useState(""); 
+  // The callback function for the initialization event of Aceoffix. You can add custom buttons here.
+  const OnAceoffixCtrlInit = () => {
+    aceoffixctrl.CustomToolbar = false; // Hide the custom toolbar
+  };
+
+  const AfterDocumentOpened = () => {
+    // When the file is opened, assign a text value to the current cursor position in Word
+    const params = JSON.stringify(aceoffixctrl.WindowParams);
+    setUserName(params);
+  };
+  const openFile = async () => {
+    try {
+      const response = await service.post("/GetParentParamValue/Word");
+      return response;
+    } catch (error) {
+      console.error("Error fetching file:", error);
+      return null;
+    }
+  };
+
+  useEffect(() => {
+    openFile().then((response) => {
+      if (response) {
+        setAceHtmlCode(response);
+      }
+    });
+
+    window.ACEPageMounted = {
+      OnAceoffixCtrlInit,
+      AfterDocumentOpened,
+    };
+
+    return () => {
+      delete window.ACEPageMounted;
+    };
+  }, []);
+
+  return (
+    <div className="showDoc">
+      <div>
+        <span style={{ color: "red" }}>
+          Parameters passed from the parent page:
+        </span>
+        <input
+          type="text"
+          id="userName"
+          name="userName"
+          readOnly 
+          value={userName || ""}
+        />
+      </div>
+      {/* This div is used to load the Aceoffix control. The height and width of the div determine the size and position of the control. */}
+      <div
+        style={{ position: "absolute", width: "100%", height: "100%" }}
+        dangerouslySetInnerHTML={{ __html: aceHtmlCode }}
+      />
+    </div>
+  );
+};
+
+export default Word;

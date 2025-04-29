@@ -1,0 +1,10 @@
+server:
+  port: 8011
+
+  servlet:
+    context-path: /aceoffix7-springboot2-back
+
+aceSysPath: D:/aceoffix
+
+
+

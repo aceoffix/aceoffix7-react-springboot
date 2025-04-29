@@ -1,0 +1,44 @@
+/* Word.css */
+.word-container {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .sidebar {
+    flex: 0 0 30%;
+    height: 100%;
+    border-right: 1px solid #ccc;
+    padding: 10px 50px;
+    text-align: center;
+  }
+  
+  .file-link {
+    cursor: pointer;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    text-decoration: underline; 
+    color: #3568d7;
+    display: block;
+  }
+  
+  .file-link:hover {
+    background-color: #f0f0f0;
+    color: #42b983;
+  }
+  
+  .file-link.active {
+    font-weight: bold;
+    color: #42b983;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  h4 {
+    color: #42b983;
+  }
