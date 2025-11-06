@@ -6,7 +6,7 @@
     "antd": "^5.24.7",
     "axios": "^1.7.9",
     "cra-template": "1.2.0",
-    "js-aceoffix": "7.1.1",
+    "js-aceoffix": "7.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.1.5",
