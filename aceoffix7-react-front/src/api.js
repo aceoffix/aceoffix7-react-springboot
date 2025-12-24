@@ -1,10 +1,9 @@
 import axios from "axios";
-//import { AceBrowser } from "./utils/js-aceoffix";
 import { AceBrowser } from "js-aceoffix";
 
 const service = axios.create({
   baseURL: "/dev-api",
-  timeout: 5000,
+  timeout: 10000,
 });
 
 service.interceptors.request.use(

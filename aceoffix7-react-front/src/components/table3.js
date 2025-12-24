@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import { AceBrowser } from 'js-aceoffix';
-
 const Table3Component = () => {
   /**
    *3.Comprehensive Demonstration table
