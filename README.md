@@ -289,8 +289,8 @@ Use "git clone" or directly download the project's compressed package to your lo
           <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
       </dependency>
-      ```
-      
+    ```
+    
   - Add a `@Bean` configuration to the `Application` class, which is the startup class of your project. This is a necessary configuration for the Aceoffix server side. The code is as follows:
 
     ```java
@@ -345,7 +345,10 @@ Use "git clone" or directly download the project's compressed package to your lo
         return servletContext ->
                 servletContext.setInitParameter("acewserver-allowedOrigins", "*");
     }
+    
     ```
+
+    
 
     > [!NOTE]
     >
