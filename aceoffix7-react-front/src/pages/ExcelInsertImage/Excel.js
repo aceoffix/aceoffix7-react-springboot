@@ -6,9 +6,7 @@ const Excel = () => {
   // The callback function for the initialization event of Aceoffix. You can add custom buttons here.
   const OnAceoffixCtrlInit = () => {
     aceoffixctrl.CustomToolbar = false; // Hide the custom toolbar
-
   };
-
   const AfterDocumentOpened = () => {
     // Write the code here that will be automatically triggered after the document is opened.
   };
@@ -32,7 +30,7 @@ const Excel = () => {
 
     window.ACEPageMounted = {
       OnAceoffixCtrlInit,
-      AfterDocumentOpened,
+      AfterDocumentOpened
     };
 
     return () => {
