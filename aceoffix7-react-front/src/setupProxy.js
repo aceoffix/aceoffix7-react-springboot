@@ -8,7 +8,7 @@ module.exports = function (app) {
  *Compared to the original configuration, only WebSocket support (ws and module.exports) has been added.
  */
   const wsProxyFilter = function (pathname, req) {
-    const match = pathname.match("/dev-api");
+    const match = pathname.match("^/dev-api");
     if (match) {
       // console.log('Proxy Filter matched:', pathname);
     }
@@ -16,7 +16,7 @@ module.exports = function (app) {
   };
   app.use(
     createProxyMiddleware(wsProxyFilter, {
-      target: "http://localhost:8011/aceoffix7-springboot2-back",
+      target: "http://localhost:8011",
       changeOrigin: true,
       pathRewrite: { "^/dev-api": "" },
       ws: true,
